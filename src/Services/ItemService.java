@@ -10,16 +10,16 @@ public class ItemService {
         try
         {
 
-            Item item = new Item();
-    
-            item.price = price;
-            item.name = name;
-            item.description = description;
-            item.quantity = quantity;
-    
-    
-            ItemDAO itemDAO = new ItemDAO();
-            itemDAO.createItem(item);
+        Item item = new Item();
+
+        item.price = price;
+        item.name = name;
+        item.description = description;
+        item.quantity = quantity;
+
+
+        ItemDAO itemDAO = new ItemDAO();
+        itemDAO.createItem(item);
         }
         catch(Exception ex)
         {
@@ -27,16 +27,16 @@ public class ItemService {
         }
 
     }
-
+     
 
     public Item ReadTtem(int id)
     {
-        ItemDAO itemDAO = new ItemDAO();
+                ItemDAO itemDAO = new ItemDAO();
         Item item = itemDAO.readItem(id);
         return item;
 
     }
-
+     
 
     public void UpdateItem(int price,String name,String description,int quantity)
     {
@@ -52,11 +52,11 @@ public class ItemService {
         itemDAO.updateItem(item);
         
     }
-
+    
 
     public void DeleteItem(int id)
     {
-
+        
         ItemDAO itemDAO = new ItemDAO();
         itemDAO.deleteItem(id);
         

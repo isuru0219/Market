@@ -11,7 +11,7 @@ import Entities.Item;
 public class ItemDAO {
 
     private Connection connection;
-    String jdbcUrl = "jdbc:mysql://localhost:3306/super_market_project";
+    String jdbcUrl = "jdbc:mysql://localhost:3306/Sathi_Pola";
     String username = "root";
     String password = "KGS@madhu1996";
 
