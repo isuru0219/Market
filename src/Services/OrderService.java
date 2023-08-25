@@ -9,7 +9,7 @@ import Repositories.OrderDAO;
 
 public class OrderService {
     
-    public boolean placeOrder(List<Item> items) 
+    public boolean placeOrder(List<Item> items) throws ClassNotFoundException 
     {
         ItemDAO itemDAO = new ItemDAO();
         double totalOrderPrice = 0;

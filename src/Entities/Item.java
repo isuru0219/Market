@@ -10,4 +10,14 @@ public class Item {
     public int quantity;
     public List<Order> orders;
 
+    public Item(int id, int quantity) {
+        this.id = id;
+        this.quantity = quantity;
+    }
+
+    public Item()
+    {
+
+    }
+
 }

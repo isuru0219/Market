@@ -1,6 +1,7 @@
 package Repositories;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,12 +12,20 @@ import Entities.Order;
 
 public class OrderDAO {
 
-        private Connection connection; 
+    private Connection connection;
+    String jdbcUrl = "jdbc:mysql://localhost:3306/Sathi_Pola";
+    String username = "root";
+    String password = "KGS@madhu1996";
 
-    public void createOrder(Order order) {
+    public void createOrder(Order order) throws ClassNotFoundException {
         String insertOrderQuery = "INSERT INTO orders (time, total) VALUES (?, ?)";
 
-        try (PreparedStatement preparedStatement = connection.prepareStatement(insertOrderQuery, PreparedStatement.RETURN_GENERATED_KEYS)) {
+        try 
+        {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(jdbcUrl, username, password);
+            
+            PreparedStatement preparedStatement = connection.prepareStatement(insertOrderQuery, PreparedStatement.RETURN_GENERATED_KEYS); 
             preparedStatement.setDate(1, order.time);
             preparedStatement.setDouble(2, order.total);
 
